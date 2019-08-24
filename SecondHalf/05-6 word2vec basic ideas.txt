@@ -1,0 +1,41 @@
+Word2vec - motivation
+
+V = The number of words
+
+We need a vector of each word.
+
+***** We need to learn those vectors
+
+How do we learn?
+
+We learn parameters/weights that minimize error function/maximize probabilities.
+
+To learn vectors we need to cast the problem in such a way that
+
+-1- we are learning parameters
+
+-2- we are minimizing error functions or maximizing probabilities
+
+(1)
+(a) Use 1-hot representation of words as input (Context). V dimension vector
+    where V is the size of the vocabulary.
+(b) First the 1-hot representation gets converted to  a vector representation 
+    (of say length N).
+    The 1-hot vector multiplied by the weight matrix creates the vector representation.
+    (So the weight matrix of dimension V X N is the parameters.)
+
+(2) 
+(a) But now we have to compute the probability of each word in the vocabulary
+    conditioned on the input (Context).
+(b) So we have a perceptron layer with another weight matrix 
+(c) We then have a softmax layer.
+(d) During back propagation, for CBOW, we try to maximize the probability of the center word (say the jth word in the vocabulary) conditioned on the context (the input).
+
+====
+
+Initially we can think of a single word input context.
+For a multi-word input context an average can be done.
+ 
+
+
+
